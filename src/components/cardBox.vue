@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
     .card{
-        background-color:  rgb(54, 65, 77);
+        background-color:  #2E3A46;
         display: flex;
         flex-direction: column;
         align-items: center;
