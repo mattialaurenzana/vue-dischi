@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-      <header-box />
-      <main-container :discList = "discList"/>
+      <header-box @search="filterResearch"/>
+      <main-container :discList = "filteredList"/>
       <loader-box v-if="loader()"/>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
   data(){
     return{
       discList: [],
+      filteredList: [],
     }
   },
   methods: {
@@ -36,7 +37,21 @@ export default {
     testLoader: function(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((response)=>{
         this.discList = response.data.response;
+        this.filteredList = response.data.response;
     })
+    },
+    filterResearch(selectedOption){
+
+      if(selectedOption === 'All'){
+
+        this.filteredList = this.discList;
+      }
+      else{
+        
+        this.filteredList = this.discList.filter((disk)=>{
+          return disk.genre.includes(selectedOption);
+      })
+      }
     }
   },
   mounted(){
