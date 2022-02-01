@@ -9,7 +9,20 @@
             <option>Metal</option>
             <option>All</option>
         </select>
-     
+            <select name="" id="" v-model="selectedArtist" @click="$emit('artistResearch',selectedArtist)">
+            <option disabled value="">Please select your artist</option>
+            <option>Bon Jovi</option>
+            <option>Queen</option>
+            <option>Sting</option>
+            <option>Steve Gadd Band</option>
+            <option>Iron Maiden</option>
+            <option>Eric Clapton</option>
+            <option>Deep Purple</option>
+            <option>Metallica</option>
+            <option>Dave Weckl</option>
+            <option>Michael Jacjson</option>
+            <option>All</option>
+        </select>
     </header>
 </template>
 

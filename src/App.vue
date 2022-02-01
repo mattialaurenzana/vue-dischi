@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <header-box @search="filterResearch"/>
+      <header-box @search="filterResearch" @artistResearch="artistResearch"/>
       <main-container :discList = "filteredList"/>
       <loader-box v-if="loader()"/>
   </div>
@@ -47,10 +47,22 @@ export default {
         this.filteredList = this.discList;
       }
       else{
-        
+
         this.filteredList = this.discList.filter((disk)=>{
           return disk.genre.includes(selectedOption);
       })
+      }
+    },
+    artistResearch(selectedArtist){
+         if(selectedArtist === 'All'){
+
+        this.filteredList = this.discList;
+      }
+      else{
+
+        this.filteredList = this.discList.filter((disk)=>{
+          return disk.author.includes(selectedArtist);
+        })
       }
     }
   },
