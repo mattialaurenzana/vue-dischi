@@ -1,7 +1,7 @@
 <template>
     <header>
         <img src="../assets/spotify-brands.svg" alt="">
-        <select name="" id="" v-model="selectedOption" @click="$emit('search',selectedOption)">
+        <select v-model="selectedOption" @change="$emit('search',selectedOption)">
             <option disabled value="">Please select your genre</option>
             <option>Pop</option>
             <option>Rock</option>
@@ -9,7 +9,7 @@
             <option>Metal</option>
             <option>All</option>
         </select>
-            <select name="" id="" v-model="selectedArtist" @click="$emit('artistResearch',selectedArtist)">
+            <select v-model="selectedArtist" @change="$emit('artistResearch',selectedArtist)">
             <option disabled value="">Please select your artist</option>
             <option>Bon Jovi</option>
             <option>Queen</option>
